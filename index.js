@@ -13,15 +13,6 @@ var connection = mysql.createConnection({
   password : '8bde9d40'
 });
 
-connection.connect( err => {
-  if (err) {
-    console.log(err)
-    return err
-  }
-  else { 
-        console.log("Databace working")
-  }
-})
 
 
 app.get('/', (req, res) => {
