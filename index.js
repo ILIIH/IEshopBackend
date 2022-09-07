@@ -69,4 +69,3 @@ app.post('/api/registrate/user', (req, res) => {
 }) 
 })
 
-app.listen(3000)
