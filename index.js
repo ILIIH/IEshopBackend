@@ -1,16 +1,14 @@
-// Подключение библиотеки
-var express = require('express');
-// Вызов основной функции, которая передается из модуля
-var app = express();
+const express = require('express')
+const app = express()
+const mysql = require('mysql')
+
 const port = process.env.PORT || 3000
 
-
-
-var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'eu-cdbr-west-03.cleardb.net',
   user     : 'b190ec4547fdfc',
-  password : '8bde9d40'
+  password: '8bde9d40', 
+  database: 'heroku_3f03a9861b68fae'
 });
 
 
