@@ -2,6 +2,7 @@
 var express = require('express');
 // Вызов основной функции, которая передается из модуля
 var app = express();
+const port = process.env.PORT || 3000
 
 
 
@@ -69,4 +70,5 @@ app.post('/api/registrate/user', (req, res) => {
 }) 
 })
 
-app.listen(3000)
+app.listen(port)
+console.log(`Server is listening on port ${port}`);
