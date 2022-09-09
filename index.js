@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/api/get/user/by/login/:login', (req, res) => {
-  var query = `SELECT * FROM ieshop.users WHERE Login = '${req.params.login}'`
+  var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${req.params.login}'`
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
@@ -29,7 +29,7 @@ app.get('/api/get/user/by/login/:login', (req, res) => {
 })
 
 app.get('/api/get/all/users', (req, res) => {
-  var query = `SELECT * FROM ieshop.users`
+  var query = `SELECT * FROM heroku_3f03a9861b68fae.user`
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
@@ -40,7 +40,7 @@ app.get('/api/get/all/users', (req, res) => {
 /////////////////////////// POST ////////////////////////////////
 
 app.post('/api/login/', (req, res) => {
-  var query = `SELECT * FROM ieshop.users WHERE Login = '${req.body.login}' AND Password = '${req.body.password}'`
+  var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${req.body.login}' AND Password = '${req.body.password}'`
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
@@ -49,7 +49,7 @@ app.post('/api/login/', (req, res) => {
 })
 
 app.post('/api/registrate/user', (req, res) => {
-  var query = "INSERT INTO ieshop.users (`Name`, `Surname`, `Email`, `Login`, `Photo`, `Telephone`, `Password`, `Country`)"
+  var query = "INSERT INTO heroku_3f03a9861b68fae.user (`Name`, `Surname`, `Email`, `Login`, `Photo`, `Telephone`, `Password`, `Country`)"
     + `VALUES('${req.body.name}', '${req.body.surname}', '${req.body.Email}', '${req.body.Email}', '${req.body.photo}', '${req.body.telephone}', '${req.body.password}', '${req.body.country}');`
   
   console.log(query)
