@@ -1,5 +1,10 @@
 const express = require('express')
 const app = express()
+
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 const mysql = require('mysql')
 
 const port = process.env.PORT || 3000
