@@ -61,8 +61,8 @@ app.post('/api/registrate/user', (req, res) => {
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
-
-       res.send(`{ "Name":"${req.body.name}","Surname": ${req.body.surname},"Email": "${req.body.Email}","Login": "${req.body.Email}","Photo": "${req.body.photo}","Telephone": "${req.body.telephone}", "Password": "${req.body.password}",Country": "${req.body.country}" }`)
+      result = `{ "Name":"${req.body.name}","Surname": ${req.body.surname},"Email": "${req.body.Email}","Login": "${req.body.Email}","Photo": "${req.body.photo}","Telephone": "${req.body.telephone}", "Password": "${req.body.password}",Country": "${req.body.country}" }` 
+       res.json(JSON.parse(result))
     
 }) 
 })
