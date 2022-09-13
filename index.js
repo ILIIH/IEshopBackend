@@ -46,7 +46,7 @@ app.get('/api/get/all/users', (req, res) => {
 
 /////////////////////////// POST ////////////////////////////////
 
-app.post('/api/login/',jsonParser, (req, res) => {
+app.post('/api/login/', (req, res) => {
   var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${req.body.login}' AND Password = '${req.body.password}'`
   console.log(query)
   connection.query( query,
@@ -55,7 +55,7 @@ app.post('/api/login/',jsonParser, (req, res) => {
 }) 
 })
 
-app.post('/api/registrate/user',jsonParser, (req, res) => {
+app.post('/api/registrate/user', (req, res) => {
   var query = "INSERT INTO heroku_3f03a9861b68fae.user (`Name`, `Surname`, `Email`, `Login`, `Photo`, `Telephone`, `Password`, `Country`)"
     + `VALUES('${req.body.name}', '${req.body.surname}', '${req.body.Email}', '${req.body.Email}', '${req.body.photo}', '${req.body.telephone}', '${req.body.password}', '${req.body.country}');`
   
