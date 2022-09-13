@@ -62,7 +62,9 @@ app.post('/api/registrate/user', (req, res) => {
   connection.query( query,
   (SQL_error, SQL_result) => { 
       result = `{ "Name":"${req.body.name}","Surname": ${req.body.surname},"Email": "${req.body.Email}","Login": "${req.body.Email}","Photo": "${req.body.photo}","Telephone": "${req.body.telephone}", "Password": "${req.body.password}",Country": "${req.body.country}" }` 
-      returned =   JSON.parse(result)
+    returned = JSON.parse(result)
+      console.log("Returned result = "+returned)
+
       res.json(returned)
     
 }) 
