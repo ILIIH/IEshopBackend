@@ -2,10 +2,9 @@ const express = require('express')
 const app = express()
 
 var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json()
 
-app.use(bp.json())
-app.use(bp.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const mysql = require('mysql')
 
