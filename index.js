@@ -71,7 +71,13 @@ app.post('/api/registrate/user', (req, res) => {
         connection.query( query,
           (SQL_error, SQL_result) => { 
          
-            var result = new Object();
+              var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${Email}'`
+              console.log(query)
+              connection.query( query,
+              (SQL_error, SQL_result) => { 
+              res.json(SQL_result)
+            })
+            /*var result = new Object();
           result.Name = name
           result.Surname  = surname
           result.Email = Email
@@ -85,7 +91,7 @@ app.post('/api/registrate/user', (req, res) => {
         
           console.log("Res = "+result.Name+" Name = "+name)
             res.json(result)
-          
+          */
       }) 
 })
 
