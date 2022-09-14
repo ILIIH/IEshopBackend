@@ -58,12 +58,14 @@ app.post('/api/registrate/user', (req, res) => {
   var query = "INSERT INTO heroku_3f03a9861b68fae.user (`Name`, `Surname`, `Email`, `Login`, `Photo`, `Telephone`, `Password`, `Country`)"
     + `VALUES('${req.body.name}', '${req.body.surname}', '${req.body.Email}', '${req.body.Email}', '${req.body.photo}', '${req.body.telephone}', '${req.body.password}', '${req.body.country}');`
   
+  console.log("Request = "+req)
+  
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
       result = `{ "Name":"${req.body.name}","Surname": "${req.body.surname}","Email": "${req.body.Email}","Login": "${req.body.Email}","Photo": "${req.body.photo}","Telephone": "${req.body.telephone}", "Password": "${req.body.password}","Country": "${req.body.country}" }` 
     returned = JSON.parse(result)
-      console.log("Returned result = "+returned)
+      console.log("Returned result name = "+returned.name)
 
       res.json(returned)
     
