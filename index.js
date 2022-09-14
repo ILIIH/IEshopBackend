@@ -56,7 +56,7 @@ app.post('/api/login/', (req, res) => {
 
 app.post('/api/registrate/user', (req, res) => {
   var query = "INSERT INTO heroku_3f03a9861b68fae.user (`Name`, `Surname`, `Email`, `Login`, `Photo`, `Telephone`, `Password`, `Country`)"
-    + `VALUES('${req.body.name}', '${req.body.surname}', '${req.body.Email}', '${req.body.Email}', '${req.body.photo}', '${req.body.telephone}', '${req.body.password}', '${req.body.country}');`
+    + `VALUES('${req.body.Name}', '${req.body.Surname}', '${req.body.Email}', '${req.body.Email}', '${req.body.Photo}', '${req.body.Telephone}', '${req.body.Password}', '${req.body.Country}');`
   
   console.log("Request = "+req)
   
