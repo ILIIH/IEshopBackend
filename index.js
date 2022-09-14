@@ -59,15 +59,20 @@ app.post('/api/registrate/user', (req, res) => {
     + `VALUES('${req.body.Name}', '${req.body.Surname}', '${req.body.Email}', '${req.body.Email}', '${req.body.Photo}', '${req.body.Telephone}', '${req.body.Password}', '${req.body.Country}');`
   
   console.log("Request = "+req)
-  var namec = req.body.Name
-    var name1 = " Testicl7"
-
+  var name = req.body.Name
+  var surname = req.body.surname
+   var Email = req.body.Email
+  var photo = req.body.photo
+  var telephone = req.body.telephone
+  var password = req.body.password
+  var country = req.body.country
+  
   console.log(query)
         connection.query( query,
         (SQL_error, SQL_result) => { 
-            result = `{ "Name":"${req.body.name}","Surname": "${req.body.surname}","Email": "${req.body.Email}","Login": "${req.body.Email}","Photo": "${req.body.photo}","Telephone": "${req.body.telephone}", "Password": "${req.body.password}","Country": "${req.body.country}" }` 
+            result = `{ "Name":"${name}","Surname": "${surname}","Email": "${Email}","Login": "${Email}","Photo": "${photo}","Telephone": "${telephone}", "Password": "${password}","Country": "${country}" }` 
           returned = JSON.parse(result)
-            console.log("Returned result name = "+namec+" "+name1)
+      
 
             res.json(returned)
           
