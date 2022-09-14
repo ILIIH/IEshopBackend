@@ -71,27 +71,11 @@ app.post('/api/registrate/user', (req, res) => {
         connection.query( query,
           (SQL_error, SQL_result) => { 
          
-              var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${Email}'`
-              console.log(query)
-              connection.query( query,
-              (SQL_error, SQL_result) => { 
-              res.json(SQL_result)
-            })
-            /*var result = new Object();
-          result.Name = name
-          result.Surname  = surname
-          result.Email = Email
-          result.Login = Email
-          result.Photo = photo
-          result.Telephone = telephone
-          result.Password = password
-          result.Country = country
-
-
-        
-          console.log("Res = "+result.Name+" Name = "+name)
-            res.json(result)
-          */
+            result = `{ "Name":"${name}","Surname": "${surname}","Email": "${Email}","Login": "${Email}","Photo": "${photo}","Telephone": "${telephone}", "Password": "${password}","Country": "${country}" }` 
+          returned = JSON.parse(result)
+          console.log("Res = "+result.name+"Name = "+name)
+            res.json(returned)
+          
       }) 
 })
 
