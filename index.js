@@ -46,7 +46,7 @@ app.get('/api/get/all/users', (req, res) => {
 /////////////////////////// POST ////////////////////////////////
 
 app.post('/api/login/', (req, res) => {
-  var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${req.body.login}' AND Password = '${req.body.password}'`
+  var query = `SELECT * FROM heroku_3f03a9861b68fae.user WHERE Login = '${req.body.Login}' AND Password = '${req.body.Password}'`
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
@@ -60,12 +60,12 @@ app.post('/api/registrate/user', (req, res) => {
   
   console.log("Request = "+req)
   var name = req.body.Name
-  var surname = req.body.surname
+  var surname = req.body.Surname
    var Email = req.body.Email
-  var photo = req.body.photo
-  var telephone = req.body.telephone
-  var password = req.body.password
-  var country = req.body.country
+  var photo = req.body.Photo
+  var telephone = req.body.Telephone
+  var password = req.body.Password
+  var country = req.body.Country
   
   console.log(query)
         connection.query( query,
