@@ -42,7 +42,7 @@ app.get('/api/sendEmail/:Email', (req, res) => {
               service: 'gmail',
               auth: {
                 user: 'jointlord0@gmail.com',
-                pass: 'Magazyakawar12'
+                pass: 'rgefrgywozwixwwp'
               }
             });
 
