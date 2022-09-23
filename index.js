@@ -18,7 +18,13 @@ var connection = mysql.createConnection({
   database: 'heroku_3f03a9861b68fae'
 });
 
-
+var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'jointlord0@gmail.com',
+        pass: 'rgefrgywozwixwwp'
+      }
+});
 
 app.get('/', (req, res) => {
   res.send('Hellow world')
@@ -36,22 +42,16 @@ app.get('/api/get/user/by/login/:login', (req, res) => {
 })
 
 
-app.get('/api/sendEmail/:Email', (req, res) => { 
+app.get('/api/sendEmail/:email/:code', (req, res) => { 
   
-            var transporter = nodemailer.createTransport({
-              service: 'gmail',
-              auth: {
-                user: 'jointlord0@gmail.com',
-                pass: 'rgefrgywozwixwwp'
-              }
-            });
+          
 
             var mailOptions = {
               from: 'jointlord0@gmail.com',
-              to: 'illiabranchuk@gmail.com',
-              subject: 'Sending Email using Node.js',
-              text: 'That was easy!'
+              to: `${req.params.email}`,
+              subject: 'Authorization IEshop',
             };
+            text: `Hello. Welcome to IEshop - you can send everything, even a cow \n Your authorization code: ${req.params.code} `
 
             transporter.sendMail(mailOptions, function(error, info){
               if (error) {
@@ -59,14 +59,7 @@ app.get('/api/sendEmail/:Email', (req, res) => {
               } else {
                 console.log('Email sent: ' + info.response);
               }
-            });
-  
-              var query = `SELECT * FROM heroku_3f03a9861b68fae.user`
-            console.log(query)
-            connection.query( query,
-            (SQL_error, SQL_result) => { 
-            res.json(SQL_result)
-          }) 
+            });           
 
 })
 
