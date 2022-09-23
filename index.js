@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 var bodyParser = require('body-parser')
+var nodemailer = require('nodemailer');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -34,6 +35,41 @@ app.get('/api/get/user/by/login/:login', (req, res) => {
 }) 
 })
 
+
+app.get('/api/sendEmail/:Email', (req, res) => { 
+  
+            var transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                user: 'jointlord0@gmail.com',
+                pass: 'Magazyakawar12'
+              }
+            });
+
+            var mailOptions = {
+              from: 'jointlord0@gmail.com',
+              to: 'illiabranchuk@gmail.com',
+              subject: 'Sending Email using Node.js',
+              text: 'That was easy!'
+            };
+
+            transporter.sendMail(mailOptions, function(error, info){
+              if (error) {
+                console.log(error);
+              } else {
+                console.log('Email sent: ' + info.response);
+              }
+            });
+  
+              var query = `SELECT * FROM heroku_3f03a9861b68fae.user`
+            console.log(query)
+            connection.query( query,
+            (SQL_error, SQL_result) => { 
+            res.json(SQL_result)
+          }) 
+
+})
+
 app.get('/api/get/all/users', (req, res) => {
   var query = `SELECT * FROM heroku_3f03a9861b68fae.user`
   console.log(query)
@@ -50,7 +86,7 @@ app.post('/api/login/', (req, res) => {
   console.log(query)
   connection.query( query,
   (SQL_error, SQL_result) => { 
-  res.json(SQL_result)
+      res.json(SQL_result)
 }) 
 })
 
@@ -78,6 +114,10 @@ app.post('/api/registrate/user', (req, res) => {
           
       }) 
 })
+
+
+
+
 
 app.listen(port)
 console.log(`Server is listening on port ${port}`);
