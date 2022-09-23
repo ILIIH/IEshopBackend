@@ -49,15 +49,17 @@ app.get('/api/sendEmail/:email/:code', (req, res) => {
             var mailOptions = {
               from: 'jointlord0@gmail.com',
               to: `${req.params.email}`,
-              subject: 'Authorization IEshop',
-            };
+              subject: 'Authorization IEshop',  
             text: `Hello. Welcome to IEshop - you can send everything, even a cow \n Your authorization code: ${req.params.code} `
-
+            };
+  
             transporter.sendMail(mailOptions, function(error, info){
               if (error) {
                 console.log(error);
+                res.json(`{"Error" : "true" , "measage" : "${error.message}"}`)
               } else {
                 console.log('Email sent: ' + info.response);
+                res.json(`{"Error" : "false" , "measage" : "${info.response}"}`)
               }
             });           
 
