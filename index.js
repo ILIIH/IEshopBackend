@@ -50,7 +50,7 @@ app.get('/api/sendEmail/:email/:code', (req, res) => {
               from: 'jointlord0@gmail.com',
               to: `${req.params.email}`,
               subject: 'Authorization IEshop',  
-            text: `Hello. Welcome to IEshop - you can sell everything, even a cow \n Your authorization code: ${req.params.code} `
+            text: `Hello. Welcome to IEshop - you can sell everything,\neven a cow \nYour authorization code: ${req.params.code} `
             };
   
             transporter.sendMail(mailOptions, function(error, info){
