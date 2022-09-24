@@ -56,10 +56,10 @@ app.get('/api/sendEmail/:email/:code', (req, res) => {
             transporter.sendMail(mailOptions, function(error, info){
               if (error) {
                 console.log(error);
-                res.send(true )
+                res.send(false)
               } else {
                 console.log('Email sent: ' + info.response);
-                res.send(false)
+                res.send(true)
               }
             });           
 
