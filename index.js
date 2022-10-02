@@ -44,7 +44,6 @@ app.get('/api/get/user/by/login/:login', (req, res) => {
 
 app.get('/api/sendEmail/:email/:code', (req, res) => { 
   
-          
 
             var mailOptions = {
               from: 'jointlord0@gmail.com',
